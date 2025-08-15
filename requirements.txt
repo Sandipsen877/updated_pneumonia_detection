@@ -1,0 +1,6 @@
+torch==2.0.1
+torchvision==0.15.2
+kagglehub==0.2.2
+matplotlib==3.7.0
+kaggle==1.5.12
+Pillow==9.5.0
