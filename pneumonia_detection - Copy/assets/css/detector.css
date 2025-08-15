@@ -1,0 +1,705 @@
+/* Base Styles */
+.detection-container {
+    background: linear-gradient(to bottom, #0a121f 0%, #0f1a2b 100%);
+    color: #e6f1ff;
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    padding: 20px 5%;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.detection-hero {
+    text-align: center;
+    padding: 80px 0 50px;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #5bc0ff, #3a9bd5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 10px rgba(91, 192, 255, 0.3);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* Section Headers */
+.section-header {
+    text-align: center;
+    margin: 80px 0 50px;
+    position: relative;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    display: inline-block;
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.glowing-bar {
+    height: 4px;
+    width: 120px;
+    background: linear-gradient(90deg, #5bc0ff, #3a9bd5);
+    margin: 0 auto;
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(91, 192, 255, 0.7);
+    position: relative;
+    overflow: hidden;
+}
+
+.glowing-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+    animation: shimmer 3s infinite;
+}
+
+/* Upload Section */
+.upload-container {
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.upload-card {
+    flex: 1;
+    background: rgba(16, 31, 63, 0.5);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    transition: all 0.4s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.upload-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(74, 144, 226, 0.5);
+}
+
+.upload-area {
+    padding: 40px 20px;
+    border: 2px dashed rgba(74, 144, 226, 0.3);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 25px;
+}
+
+.upload-area:hover {
+    border-color: rgba(74, 144, 226, 0.6);
+    background: rgba(74, 144, 226, 0.05);
+}
+
+.upload-icon {
+    font-size: 3rem;
+    color: #5bc0ff;
+    margin-bottom: 20px;
+}
+
+.upload-area h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #e6f1ff;
+}
+
+.upload-area p {
+    margin: 15px 0;
+    color: #c7d8ff;
+}
+
+.btn-select {
+    background: linear-gradient(135deg, #5bc0ff 0%, #3a9bd5 100%);
+    color: #0a192f;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(91, 192, 255, 0.3);
+}
+
+.btn-select:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(91, 192, 255, 0.5);
+}
+
+.file-types {
+    margin-top: 20px;
+}
+
+.format-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.badge {
+    background: rgba(74, 144, 226, 0.2);
+    color: #5bc0ff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(74, 144, 226, 0.3);
+}
+
+.patient-info {
+    flex: 1;
+}
+
+.setting-card {
+    background: rgba(16, 31, 63, 0.5);
+    border-radius: 16px;
+    padding: 25px;
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    transition: all 0.4s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    height: 100%;
+}
+
+.setting-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border-color: rgba(74, 144, 226, 0.5);
+}
+
+.setting-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: #5bc0ff;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    color: #c7d8ff;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-align: left;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px 12px 40px;
+    background: rgba(0, 12, 24, 0.6);
+    border: 1px solid rgba(74, 144, 226, 0.3);
+    border-radius: 8px;
+    color: #e6f1ff;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #5bc0ff;
+    box-shadow: 0 0 0 2px rgba(91, 192, 255, 0.2);
+    outline: none;
+}
+
+.form-group i {
+    position: absolute;
+    left: 15px;
+    top: 40px;
+    color: #5bc0ff;
+    font-size: 0.9rem;
+}
+
+.upload-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.btn-scan, .btn-clear, .btn-export, .btn-newscan {
+    padding: 15px 40px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-scan, .btn-export {
+    background: linear-gradient(135deg, #5bc0ff 0%, #3a9bd5 100%);
+    color: #0a192f;
+    box-shadow: 0 5px 15px rgba(91, 192, 255, 0.3);
+}
+
+.btn-scan:hover, .btn-export:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(91, 192, 255, 0.5);
+}
+
+.btn-clear, .btn-newscan {
+    background: rgba(255, 255, 255, 0.1);
+    color: #e6f1ff;
+    border: 1px solid rgba(74, 144, 226, 0.3);
+}
+
+.btn-clear:hover, .btn-newscan:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(74, 144, 226, 0.6);
+    transform: translateY(-3px);
+}
+
+/* Results Section */
+.results-section {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.results-container {
+    background: rgba(16, 31, 63, 0.5);
+    border-radius: 16px;
+    padding: 30px;
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    margin-top: 30px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.result-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.result-indicator {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.indicator-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ff5b5b;
+}
+
+.result-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff5b5b;
+}
+
+.result-image {
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+}
+
+.result-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.confidence-meter {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.confidence-bar {
+    height: 10px;
+    background: #1e2b43;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.confidence-bar::after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #5bc0ff, #3a9bd5);
+    transition: width 1s ease;
+}
+
+.confidence-value {
+    color: #a8c8ff;
+    font-size: 0.9rem;
+    text-align: center;
+    display: block;
+}
+
+.result-message {
+    text-align: center;
+    color: #c7d8ff;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.results-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+/* Result States */
+.pneumonia-negative .indicator-circle {
+    background: #4caf50;
+}
+
+.pneumonia-negative .result-text {
+    color: #4caf50;
+}
+
+/* Animations */
+@keyframes shimmer {
+    100% {
+        left: 100%;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2.2rem;
+    }
+    
+    .upload-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .detection-hero {
+        padding: 60px 0 40px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .detection-container {
+        padding: 20px;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .upload-card {
+        padding: 25px;
+    }
+    
+    .btn-scan, .btn-clear, .btn-export, .btn-newscan {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    
+    .results-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+/* Add to the end of detector.css */
+
+/* 3D Card Animation */
+/* Replace the existing .upload-card styles with these */
+.upload-card {
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    will-change: transform;
+}
+
+.upload-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(91, 192, 255, 0.2) 0%, rgba(58, 155, 213, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.upload-card:hover::before {
+    opacity: 1;
+}
+
+/* Light theme adjustment */
+body.light-theme .upload-card::before {
+    background: linear-gradient(135deg, rgba(58, 123, 213, 0.1) 0%, rgba(0, 210, 255, 0.05) 100%);
+}
+
+/* Light Theme Styles */
+body.light-theme .detection-container {
+    background: linear-gradient(to bottom, #f5f7fa 0%, #e4e8ed 100%);
+    color: #333;
+}
+
+body.light-theme .hero-title {
+    background: linear-gradient(90deg, #3a7bd5, #00d2ff);
+    text-shadow: 0 2px 10px rgba(58, 123, 213, 0.3);
+}
+
+body.light-theme .upload-card,
+body.light-theme .setting-card,
+body.light-theme .results-container {
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .upload-area {
+    border-color: rgba(58, 123, 213, 0.3);
+}
+
+body.light-theme .upload-area:hover {
+    border-color: rgba(58, 123, 213, 0.6);
+    background: rgba(58, 123, 213, 0.05);
+}
+
+body.light-theme .form-group input,
+body.light-theme .form-group select {
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .badge {
+    background: rgba(58, 123, 213, 0.1);
+    color: #3a7bd5;
+    border: 1px solid rgba(58, 123, 213, 0.3);
+}
+
+body.light-theme .confidence-bar {
+    background: #e0e5ec;
+}
+
+body.light-theme .result-message {
+    color: #555;
+}
+
+/* Enhanced Theme Toggle Animation */
+.theme-toggle {
+    transition: all 0.3s ease;
+    transform: scale(1);
+    
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Add to the end of detector.css */
+
+/* Cursor styles */
+.upload-area {
+    cursor: grab;
+}
+
+.upload-area:active {
+    cursor: grabbing;
+}
+
+/* Glowing bar animation adjustment */
+.glowing-bar {
+    transition: transform 0.3s ease-out;
+}
+
+
+/* Add these styles to your existing CSS */
+.theme-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-toggle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #5bc0ff 0%, #3a9bd5 100%);
+    opacity: 0.1;
+    transition: opacity 0.3s ease;
+}
+
+.theme-toggle:hover::before {
+    opacity: 0.2;
+}
+
+.theme-toggle i {
+    font-size: 1.2rem;
+    color: #5bc0ff;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+/* Light theme styles */
+body.light-theme .theme-toggle::before {
+    background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+}
+
+body.light-theme .theme-toggle i {
+    color: #4caf50;
+}
+
+/* Animation */
+.theme-toggle:active {
+    transform: scale(0.9);
+}
+
+.theme-toggle.active {
+    animation: pulse 0.5s ease;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Loading Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 26, 43, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(4px);
+}
+
+.loading-content {
+    text-align: center;
+    color: #e6f1ff;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(91, 192, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #5bc0ff;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px;
+}
+
+.loading-text {
+    margin-top: 15px;
+    font-size: 1.1rem;
+    color: #c7d8ff;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Error Messages */
+.api-error {
+    background: rgba(255, 91, 91, 0.1);
+    color: #ff5b5b;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 1px solid #ff5b5b;
+    margin: 20px 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Drag and Drop Highlight */
+.upload-area.highlight {
+    border-color: #5bc0ff !important;
+    background: rgba(91, 192, 255, 0.1) !important;
+    transform: translateY(-3px);
+}

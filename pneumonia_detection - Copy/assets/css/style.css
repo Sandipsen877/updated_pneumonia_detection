@@ -1,0 +1,46 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background-color: #f5f7fa;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body.sidebar-open {
+    overflow: hidden;
+    height: 100vh;
+}
+
+.main-content {
+    min-height: 100vh;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    z-index: 1;
+    background: #f5f7fa;
+}
+
+.sidebar.active + .main-content {
+    transform: translateX(280px);
+}
+
+@media (max-width: 992px) {
+    .sidebar.active + .main-content {
+        transform: none;
+    }
+}
+/* Add these to your existing style.css */
+[dir="rtl"] .sidebar.active + .main-content {
+    transform: translateX(-280px);
+}
+
+[dir="rtl"] body {
+    text-align: right;
+}

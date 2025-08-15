@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeriScan AI | Pneumonia Detection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/detector.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preload" href="assets/images/logo.png" as="image">
+    <link rel="preload" href="assets/images/background.jpg" as="image">
+    <!-- Add this with your other meta tags -->
+<meta name="color-scheme" content="light dark">
+</head>
+<body>
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" aria-hidden="true"></div>
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Main navigation">
+        <div class="sidebar-header">
+            <a href="index.html" class="logo-link">
+                <img src="assets/images/logo.png" alt="VeriScan AI Logo" class="sidebar-logo" width="40" height="40">
+            </a>
+            <span>VeriScan AI</span>
+            <button class="sidebar-close" aria-label="Close sidebar">&times;</button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="index.html" class="sidebar-link active" aria-current="page">
+        <i class="fas fa-home"></i> <span class="nav-text">Home</span>
+    </a>
+    <a href="detection.html" class="sidebar-link">
+        <i class="fas fa-lungs"></i> <span class="nav-text">Pneumonia Detection</span> <!-- Updated text -->
+    </a>
+            <div class="sidebar-language">
+                <i class="fas fa-globe" aria-hidden="true"></i>
+                <select class="language-select" aria-label="Select language" id="sidebar-language">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                </select>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Navbar -->
+        <nav class="navbar" aria-label="Primary navigation">
+            <div class="navbar-left">
+                <button class="sidebar-toggle" aria-label="Toggle sidebar">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+                <a href="index.html" class="logo-link">
+                    <img src="assets/images/logo.png" alt="VeriScan AI Logo" class="navbar-logo" width="32" height="32">
+                    <span class="logo-text">VeriScan AI</span>
+                </a>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="detection.html" class="active" aria-current="page">Pneumonia Detection</a>
+            </div>
+            
+            <div class="nav-actions">
+                <!-- Change the theme toggle button to this -->
+                 <!-- Replace the existing theme toggle button with this -->
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="language-selector">
+                    <i class="fas fa-globe" aria-hidden="true"></i>
+                    <select class="language-select" aria-label="Select language" id="navbar-language">
+                        <option value="en">EN</option>
+                        <option value="es">ES</option>
+                        <option value="fr">FR</option>
+                    </select>
+                </div>
+                <div class="auth-buttons">
+                    <a href="auth.html?action=signup" class="btn-signin">Sign In</a>
+                    <a href="auth.html?action=login" class="btn-login">Log In</a>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Detection Container -->
+        <div class="detection-container">
+            <!-- Detection Hero Section -->
+            <section class="detection-hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">Pneumonia Detection</h1>
+                    <p class="hero-subtitle">Upload a chest X-ray image to detect signs of pneumonia using our advanced AI</p>
+                </div>
+            </section>
+
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="section-header">
+                    <h2>Upload X-ray Image</h2>
+                    <div class="glowing-bar"></div>
+                </div>
+                
+                <div class="upload-container">
+                    <div class="upload-card">
+                        <div class="upload-area" id="dropZone">
+                            <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                            <h3>Drag & Drop X-ray Here</h3>
+                            <p>or</p>
+                            <button class="btn-select" id="selectFileBtn">Select File</button>
+                            <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                        </div>
+                        <div class="file-types">
+                            <span>Supported formats:</span>
+                            <div class="format-badges">
+                                <span class="badge">JPG</span>
+                                <span class="badge">PNG</span>
+                                <span class="badge">DICOM</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="patient-info">
+                        <div class="setting-card">
+                            <h3>Patient Information</h3>
+                            <div class="form-group">
+                                <label for="patient-name">Name</label>
+                                <input type="text" id="patient-name" placeholder="Patient name">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="form-group">
+                                <label for="patient-age">Age</label>
+                                <input type="number" id="patient-age" placeholder="Patient age" min="1" max="120">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="form-group">
+                                <label for="patient-gender">Gender</label>
+                                <select id="patient-gender">
+                                    <option value="" disabled selected>Select gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <i class="fas fa-venus-mars"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="upload-actions">
+                    <button class="btn-scan" id="scanButton" disabled>Analyze X-ray</button>
+                    <button class="btn-clear" id="clearButton">Clear All</button>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="section-header">
+                    <h2>Analysis Results</h2>
+                    <div class="glowing-bar"></div>
+                </div>
+                
+                <div class="results-container">
+                    <div class="result-card">
+                        <div class="result-indicator">
+                            <div class="indicator-circle"></div>
+                            <span class="result-text" id="resultText">Pneumonia Detected</span>
+                        </div>
+                        <div class="result-image">
+                            <img id="resultPreview" src="" alt="X-ray preview">
+                            <div class="confidence-meter">
+                                <div class="confidence-bar" id="confidenceBar"></div>
+                                <span class="confidence-value" id="confidenceValue">0% confidence</span>
+                            </div>
+                        </div>
+                        <div class="result-message" id="resultMessage">
+                            The analysis indicates signs of pneumonia. Please consult with a healthcare professional.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="results-actions">
+                    <button class="btn-export">Export Report</button>
+                    <button class="btn-newscan">New Analysis</button>
+                </div>
+            </section>
+        </div>
+        
+    </main>
+    
+    <!-- JavaScript -->
+     <!-- Add before other scripts -->
+    <script src="assets/js/config.js" defer></script>
+    <script src="assets/js/utils.js" defer></script>
+    <script src="assets/js/detector_translations.js"></script>
+    <script src="assets/js/detector_animations.js"></script>
+    <script src="assets/js/detection.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/language.js"></script>
+
+    <!-- Loading overlay (will be shown/hidden by JavaScript) -->
+<div id="global-loader" class="loading-overlay" style="display: none;">
+    <div class="loading-content">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">Processing...</p>
+    </div>
+</div>
+</body>
+</html>

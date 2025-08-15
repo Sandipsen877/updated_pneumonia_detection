@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeriScan AI | Authentication</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/images/logo.png" as="image">
+    <link rel="preload" href="assets/images/background.jpg" as="image">
+</head>
+<body>
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" aria-hidden="true"></div>
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Main navigation">
+        <div class="sidebar-header">
+            <a href="index.html" class="logo-link">
+                <img src="assets/images/logo.png" alt="VeriScan AI Logo" class="sidebar-logo" width="40" height="40">
+            </a>
+            <span>VeriScan AI</span>
+            <button class="sidebar-close" aria-label="Close sidebar">&times;</button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="index.html" class="sidebar-link">
+                <i class="fas fa-home" aria-hidden="true"></i> <span class="nav-text">Home</span>
+            </a>
+          
+            <a href="detection.html" class="sidebar-link">
+                <i class="fas fa-search" aria-hidden="true"></i> <span class="nav-text">Detection</span>
+            </a>
+           
+            <div class="sidebar-auth-links">
+                <a href="auth.html?action=login" class="sidebar-link">
+                    <i class="fas fa-sign-in-alt" aria-hidden="true"></i> <span class="nav-text">Log In</span>
+                </a>
+                <a href="auth.html?action=signup" class="sidebar-link">
+                    <i class="fas fa-user-plus" aria-hidden="true"></i> <span class="nav-text">Sign Up</span>
+                </a>
+            </div>
+            <div class="sidebar-language">
+                <i class="fas fa-globe" aria-hidden="true"></i>
+                <select class="language-select" aria-label="Select language" id="sidebar-language">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                </select>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Navbar -->
+        <nav class="navbar" aria-label="Primary navigation">
+            <div class="navbar-left">
+                <button class="sidebar-toggle" aria-label="Toggle sidebar">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+                <a href="index.html" class="logo-link">
+                    <img src="assets/images/logo.png" alt="VeriScan AI Logo" class="navbar-logo" width="32" height="32">
+                </a>
+                <a href="index.html" class="logo-text-link">
+                    <span class="logo-text">VeriScan AI</span>
+                </a>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html"><span class="nav-text">Home</span></a>
+                
+                <a href="detection.html"><span class="nav-text">Detection</span></a>
+               
+            </div>
+            
+            <div class="nav-actions">
+                <div class="language-selector">
+                    <i class="fas fa-globe" aria-hidden="true"></i>
+                    <select class="language-select" aria-label="Select language" id="navbar-language">
+                        <option value="en">EN</option>
+                        <option value="es">ES</option>
+                        <option value="fr">FR</option>
+                    </select>
+                </div>
+                <div class="auth-buttons">
+                    <a href="auth.html?action=signup" class="btn-signin"><span class="btn-text">Sign In</span></a>
+                    <a href="auth.html?action=login" class="btn-login"><span class="btn-text">Log In</span></a>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Auth Container -->
+        <section class="auth-container">
+            <div class="auth-card">
+                <button class="auth-close-btn" aria-label="Close authentication" onclick="window.history.back()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <!-- Auth Tabs -->
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login" data-translate="logIn">Log In</button>
+                    <button class="auth-tab" data-tab="signup" data-translate="signUp">Sign Up</button>
+                </div>
+                
+                <!-- Login Form -->
+                <form id="login-form" class="auth-form active" aria-labelledby="login-heading">
+                    <h2 id="login-heading" data-translate="welcomeBack">Welcome Back</h2>
+                    
+                    <div class="form-group">
+                        <label for="login-email" data-translate="email">Email</label>
+                        <input type="email" id="login-email" name="email" required aria-required="true" data-placeholder="email">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password" data-translate="password">Password</label>
+                        <input type="password" id="login-password" name="password" required aria-required="true" data-placeholder="password">
+                        <i class="fas fa-lock"></i>
+                        <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" name="remember">
+                            <span data-translate="rememberMe">Remember me</span>
+                        </label>
+                        <a href="#forgot-password" class="forgot-password" data-translate="forgotPassword">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="auth-submit-btn" data-translate="logIn">Log In</button>
+                    <div class="social-login">
+                        <p data-translate="orLoginWith">Or log in with</p>
+                        <div class="social-icons">
+                            <button type="button" class="social-btn google" aria-label="Login with Google">
+                                <i class="fab fa-google"></i>
+                            </button>
+                            <button type="button" class="social-btn github" aria-label="Login with GitHub">
+                                <i class="fab fa-github"></i>
+                            </button>
+                            <button type="button" class="social-btn microsoft" aria-label="Login with Microsoft">
+                                <i class="fab fa-microsoft"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="auth-switch" data-translate-switch="login">Don't have an account? <a href="#signup">Sign up</a></p>
+                </form>
+                
+                <!-- Signup Form -->
+                <form id="signup-form" class="auth-form" aria-labelledby="signup-heading">
+                    <h2 id="signup-heading" data-translate="createAccount">Create Account</h2>
+                    <div class="form-group">
+                        <label for="signup-name" data-translate="fullName">Full Name</label>
+                        <input type="text" id="signup-name" name="name" required aria-required="true" data-placeholder="fullName">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email" data-translate="email">Email</label>
+                        <input type="email" id="signup-email" name="email" required aria-required="true" data-placeholder="email">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password" data-translate="password">Password</label>
+                        <input type="password" id="signup-password" name="password" required aria-required="true" data-placeholder="password">
+                        <i class="fas fa-lock"></i>
+                        <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <div class="password-strength">
+                            <div class="strength-meter"></div>
+                            <span class="strength-text" data-translate-strength>Weak</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-confirm-password" data-translate="confirmPassword">Confirm Password</label>
+                        <input type="password" id="signup-confirm-password" name="confirm_password" required aria-required="true" data-placeholder="confirmPassword">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                     <div class="form-group terms-checkbox" style="align-items: center; gap: 6px;">
+                        <input type="checkbox" name="terms" required aria-required="true" style="width: 16px; height: 16px; margin: 0;">
+                        <span data-translate-terms>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                    </div>
+
+
+                    <button type="submit" class="auth-submit-btn" data-translate="signUp">Sign Up</button>
+                    <div class="social-login">
+                        <p data-translate="orSignupWith">Or sign up with</p>
+                        <div class="social-icons">
+                            <button type="button" class="social-btn google" aria-label="Sign up with Google">
+                                <i class="fab fa-google"></i>
+                            </button>
+                            <button type="button" class="social-btn github" aria-label="Sign up with GitHub">
+                                <i class="fab fa-github"></i>
+                            </button>
+                            <button type="button" class="social-btn microsoft" aria-label="Sign up with Microsoft">
+                                <i class="fab fa-microsoft"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="auth-switch" data-translate-switch="signup">Already have an account? <a href="#login">Log in</a></p>
+                </form>
+                
+                <!-- Forgot Password Form -->
+                <form id="forgot-password-form" class="auth-form" aria-labelledby="forgot-password-heading">
+                    <h2 id="forgot-password-heading" data-translate="resetPassword">Reset Password</h2>
+                    <p class="form-description" data-translate="resetInstructions">Enter your email and we'll send you a link to reset your password.</p>
+                    <div class="form-group">
+                        <label for="forgot-email" data-translate="email">Email</label>
+                        <input type="email" id="forgot-email" name="email" required aria-required="true" data-placeholder="email">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <button type="submit" class="auth-submit-btn" data-translate="sendResetLink">Send Reset Link</button>
+                    <p class="auth-switch" data-translate-switch="forgot-password">Remember your password? <a href="#login">Log in</a></p>
+                </form>
+                
+                <!-- OTP Verification Form -->
+                <form id="otp-form" class="auth-form" aria-labelledby="otp-heading">
+                    <h2 id="otp-heading" data-translate="verifyEmail">Verify Your Email</h2>
+                    <p class="form-description" data-translate="otpInstructions">We've sent a 6-digit code to your email. Enter it below to verify.</p>
+                    <div class="otp-container">
+                        <input type="text" maxlength="1" class="otp-input" aria-label="First digit of OTP">
+                        <input type="text" maxlength="1" class="otp-input" aria-label="Second digit of OTP">
+                        <input type="text" maxlength="1" class="otp-input" aria-label="Third digit of OTP">
+                        <input type="text" maxlength="1" class="otp-input" aria-label="Fourth digit of OTP">
+                        <input type="text" maxlength="1" class="otp-input" aria-label="Fifth digit of OTP">
+                        <input type="text" maxlength="1" class="otp-input" aria-label="Sixth digit of OTP">
+                    </div>
+                    <div class="otp-actions">
+                        <button type="button" class="resend-otp" data-translate="resendCode">Resend Code</button>
+                        <span class="otp-timer">(01:30)</span>
+                    </div>
+                    <button type="submit" class="auth-submit-btn" data-translate="verify">Verify</button>
+                </form>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; <span id="current-year">2023</span> <span class="copyright-text">VeriScan AI. All rights reserved.</span></p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </footer>
+    </main>
+    
+    <!-- JavaScript -->
+     <!-- Add before other scripts -->
+    <script src="assets/js/config.js" defer></script>
+    <script src="assets/js/utils.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/sidebar.js" defer></script>
+    <script src="assets/js/language.js" defer></script>
+    <script src="assets/js/auth.js" defer></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const action = urlParams.get('action');
+            if (action === 'login' || action === 'signup') {
+                const authJS = document.createElement('script');
+                authJS.src = 'assets/js/auth.js';
+                document.body.appendChild(authJS);
+                authJS.onload = function() {
+                    const auth = new Auth();
+                    auth.showForm(action);
+                };
+            }
+        });
+    </script>
+</body>
+</html>
